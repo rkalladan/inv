@@ -23,6 +23,12 @@ public class User implements Serializable{
 	@OneToOne(cascade=CascadeType.ALL,targetEntity=Role.class)
 	@JoinColumn(name="user_id")
     private Role role;
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
+	}
 	public long getUser_id() {
 		return user_id;
 	}
@@ -40,12 +46,6 @@ public class User implements Serializable{
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public Role getRole() {
-		return role;
-	}
-	public void setRole(Role role) {
-		this.role = role;
 	}
 	
 	
