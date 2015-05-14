@@ -1,14 +1,17 @@
 package com.inv.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="INV_Users")
@@ -20,14 +23,15 @@ public class User implements Serializable{
 	private long user_id;
 	private String username;
 	private String password;
-	@OneToOne(cascade=CascadeType.ALL,targetEntity=Role.class)
-	@JoinColumn(name="user_id")
-    private Role role;
-	public Role getRole() {
-		return role;
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="inv_user_role",catalog="inventory_dev",joinColumns=@JoinColumn(name="user_id"),inverseJoinColumns=@JoinColumn(name="role_id"))
+	private Set<Role> roleList;
+	
+	public Set<Role> getRoleList() {
+		return roleList;
 	}
-	public void setRole(Role role) {
-		this.role = role;
+	public void setRoleList(Set<Role> roleList) {
+		this.roleList = roleList;
 	}
 	public long getUser_id() {
 		return user_id;
