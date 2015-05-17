@@ -7,10 +7,22 @@
         http://www.springframework.org/schema/mvc
 		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         http://www.springframework.org/schema/context 
+<<<<<<< HEAD
         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	<!-- <context:property-placeholder location="Inv/src/main/resources/database.properties"/> -->
+=======
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd" >
+
+
+>>>>>>> 18f3bb553eb02337507266be81ec0cb8e032a3bd
 	<!-- <context:property-placeholder location="/resources/"/> -->
 	<context:component-scan base-package="com.inv.*" />
+	<!-- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>database.properties</value>
+		</property>
+	</bean> -->
+	
 	<bean id="abstractSessionFactory" abstract="true"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="hibernateProperties">
@@ -18,7 +30,7 @@
 				hibernate.format_sql=true
 				hibernate.show_sql=true
 				hibernate.dialect=org.hibernate.dialect.MySQLDialect
-				hibernate.hbm2ddl.auto=create
+				hibernate.hbm2ddl.auto=update
 	       </value>
 		</property>
 	</bean> 

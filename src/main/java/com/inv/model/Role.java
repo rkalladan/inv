@@ -3,13 +3,12 @@ package com.inv.model;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
 @Entity
 @Table(name="INV_Role")
 public class Role implements Serializable{
@@ -19,9 +18,15 @@ public class Role implements Serializable{
 	@GeneratedValue
 	private long role_id;
 	private String rolename;
-	@OneToMany(cascade=CascadeType.ALL,targetEntity=User.class)
-	@JoinColumn(name="role_id")
-	private Set<User> userroles;
+	@ManyToMany(mappedBy="roleList")
+	private Set<User> userSet;
+	
+	public Set<User> getUserSet() {
+		return userSet;
+	}
+	public void setUserSet(Set<User> userSet) {
+		this.userSet = userSet;
+	}
 	public long getRole_id() {
 		return role_id;
 	}
