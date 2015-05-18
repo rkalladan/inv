@@ -4,4 +4,3 @@
 .project
 .settings/*
 /src/main/webapp/WEB-INF/database.properties
-
