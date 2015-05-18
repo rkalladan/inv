@@ -3,4 +3,9 @@
 .classpath
 .project
 .settings/*
+<<<<<<< HEAD
 /src/main/webapp/WEB-INF/database.properties
+=======
+/src/main/webapp/WEB-INF/database.properties
+
+>>>>>>> a145f12b6e1001323d577cf8bf46c6547a4a2ec3
