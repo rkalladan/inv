@@ -10,12 +10,6 @@
         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	<context:property-placeholder location="/WEB-INF/database.properties"/>
 	<context:component-scan base-package="com.inv.*" />
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location">
-			<value>/WEB-INF/database.properties</value>
-		</property>
-	</bean>
-	
 	<bean id="abstractSessionFactory" abstract="true"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="hibernateProperties">
@@ -28,7 +22,6 @@
 		</property>
 	</bean> 
 	<bean id="mysqlDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
 		<property name="driverClassName" value="${db.driverclassname}"/>
 		<property name="url" value="${db.url}"/>
 		<property name="username" value="${db.username}" />
