@@ -3,6 +3,7 @@ package com.inv.model;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,6 +18,7 @@ public class Role implements Serializable{
 	@Id
 	@GeneratedValue
 	private long role_id;
+	@Column(name="rolename",nullable=false,unique=true)
 	private String rolename;
 	@ManyToMany(mappedBy="roleList")
 	private Set<User> userSet;

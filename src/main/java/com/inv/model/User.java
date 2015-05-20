@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,12 +22,21 @@ public class User implements Serializable{
 	@Id
 	@GeneratedValue
 	private long user_id;
+	@Column(name="username",unique=true,nullable=false)
 	private String username;
 	private String password;
+	@Column(name="enabled",nullable=false)
+	private boolean enabled;
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(name="inv_user_role",catalog="inventory_dev",joinColumns=@JoinColumn(name="user_id"),inverseJoinColumns=@JoinColumn(name="role_id"))
 	private Set<Role> roleList;
 	
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 	public Set<Role> getRoleList() {
 		return roleList;
 	}

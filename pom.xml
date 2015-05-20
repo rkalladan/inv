@@ -14,10 +14,10 @@
   </developers>
   <properties>
   		<jdk.version>1.7</jdk.version>
-  		<spring.version>4.0.6.RELEASE</spring.version>
-  		<spring.security.version>4.0.1.RELEASE</spring.security.version>
-  		<mysql.version>5.1.9</mysql.version>
-  		<hibernate.version>4.0.1.Final</hibernate.version>
+  		<spring.version>3.2.8.RELEASE</spring.version>
+  		<spring.security.version>3.2.3.RELEASE</spring.security.version>
+  		<mysql.version>5.1.30</mysql.version>
+  		<hibernate.version>4.2.11.Final</hibernate.version>
   		<jstl.version>1.2</jstl.version>
   </properties>
   <dependencies>
@@ -56,18 +56,30 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<!-- Spring + aspects -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 			<version>${spring.security.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>${spring.security.version}</version>
 		</dependency>
+		<!-- Spring Security JSP Taglib -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+
 		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
