@@ -31,7 +31,7 @@
 	<!-- Select users and user_roles from database -->
 	<authentication-manager>
 	  <authentication-provider user-service-ref="userDetailsService">
-	  	<password-encoder hash="plaintext"/>
+	  	<password-encoder hash="bcrypt"/>
 	  </authentication-provider>
 	</authentication-manager>
 <!-- 

@@ -36,6 +36,7 @@ public class MyUserDetailsService implements UserDetailsService{
 	// org.springframework.security.core.userdetails.User
 	private org.springframework.security.core.userdetails.User buildUserForAuthentication(User user,
 			List<GrantedAuthority> authorities) {
+		System.out.println(user.getPassword()+"=====");
 		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),user.isEnabled(),true,true, true, authorities);
 	}
 

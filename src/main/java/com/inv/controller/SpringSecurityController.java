@@ -42,6 +42,11 @@ public class SpringSecurityController {
 			ModelAndView model = new ModelAndView();
 			if (error != null) {
 				model.addObject("error", "Invalid username and password!");
+				 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+				  if (!(auth instanceof AnonymousAuthenticationToken)) {
+					UserDetails userDetail = (UserDetails) auth.getPrincipal();	
+					System.out.println(userDetail.getUsername()+"====="+userDetail.getPassword()+"===="+userDetail.getAuthorities().toString());
+				  }
 			}
 	 
 			if (logout != null) {
